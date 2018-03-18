@@ -10,7 +10,7 @@
         <version>1.5.3.RELEASE</version>
     </parent>
 
-    <groupId>me.libme.modules.cluster</groupId>
+    <groupId>libme.modules</groupId>
     <artifactId>cluster-rest-api</artifactId>
     <packaging>jar</packaging>
     <version>1.0.1</version>
@@ -25,7 +25,7 @@
     <dependencies>
 
         <dependency>
-            <groupId>me.libme.modules.cluster</groupId>
+            <groupId>libme.modules</groupId>
             <artifactId>cluster-kernel</artifactId>
             <version>1.0.1</version>
         </dependency>
