@@ -1,0 +1,15 @@
+# assist configuration
+cpp.assist :
+    insert-admin-user-enable : true
+    user :
+        user-name : 3cgg@163.com
+        nature-name : J
+    roles :
+        - { roleCode : DEFAULT,roleName : 默认角色 , description : 所有没有其他角色的用户自动并入此角色 }
+        - { roleCode : ADMIN ,roleName : 管理员角色 , description : 此角色用户拥有最高权限 }
+    groups :
+        - { groupCode : DEFAULT , groupName : 默认组 , description : 不在其他组的用户自动并入此组 }
+        - { groupCode : ADMIN , groupName : 管理员组 , description : 此组用户拥有最高权限 }
+    
+    
+    

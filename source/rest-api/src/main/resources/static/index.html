@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"  rel="stylesheet" media="screen" >
+    <script src="jquery/jquery-3.2.1.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+
+
+    <style type="text/css">
+
+
+        #footer{
+            background-color: #27ae60;
+            border-top: 1px solid #26aa5e;
+            color: #fff;
+            /*padding-top: 40px;*/
+            margin-top: 80px;
+        }
+        #footer .copy-right{
+            background-color: rgba(51,51,51,.08);
+            height: 50px;
+            line-height: 50px;
+            /*margin-top: 10px;*/
+            text-align: center;
+        }
+        #footer a{
+            color: #fff;
+
+        }
+        #back-to-top{
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            background: rgba(39,174,96,.6);
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            z-index: 1;
+            display: none;
+        }
+        #back-to-top i{
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+        }
+
+
+        .tupes{
+
+        }
+
+        .tupe-container{
+            border-top: 1px solid #ecf0f1;
+            border-left: 1px solid #ecf0f1;
+            border-right: 1px solid #ecf0f1;
+        }
+
+        .tupe-container-group .tupe-container:last-child{
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .tupe-header{
+            min-height: 40px;
+            border-bottom: 1px solid #ecf0f1;
+            padding: 5px 0px;
+            line-height: 40px;
+        }
+
+        .tupe-header a{
+            color: #a3a3a4;
+        }
+
+        .tupe-header:hover{
+            background-color: #f8f8f8;
+        }
+
+        .sequence{
+            padding: 0px 45px 0px 15px;
+            font-size: 16px;
+        }
+
+        .tupe-header h1{
+
+        }
+
+        .tupe-content{
+            /*margin-top: 45px;*/
+            padding: 30px;
+            min-height: 45px;
+            transition: height 2s;
+            -moz-transition: height 2s;	/* Firefox 4 */
+            -webkit-transition: height 2s;	/* Safari 和 Chrome */
+            -o-transition: height 2s;	/* Opera */
+            background-color: #f6f6f6;
+        }
+
+        .tupe-content .tupe-sourcer{
+            border-bottom: 1px solid #000;
+        }
+
+        .tupe-content .tupe-consumer{
+            padding: 15px;
+        }
+
+        .tupe-consumer-consume{
+            margin-top: 15px;
+        }
+
+
+        .tupe-consumer-exception{
+            color: red;
+            /*border: 1px solid;*/
+        }
+
+        .tupe-consumer-consume:before{
+            content: "consume data : ";
+            /* position: absolute; */
+            border-bottom: 1px solid;
+            margin-top: -20px;
+            padding: 3px;
+        }
+
+        .tupe-consumer-produce:before{
+            content: "produce data : ";
+            /* position: absolute; */
+            border-bottom: 1px solid;
+            margin-top: -20px;
+            padding: 3px;
+        }
+
+        .tupe-consumer-mark:before{
+            content: "mark data : ";
+            /* position: absolute; */
+            border-bottom: 1px solid;
+            margin-top: -20px;
+            padding: 3px;
+        }
+
+        .tupe-consumer-exception:before{
+            content: "excepton : ";
+            color: #000;
+            /* position: absolute; */
+            border-bottom: 1px solid;
+            margin-top: -20px;
+            padding: 3px;
+        }
+
+
+
+
+
+
+        .collapseDown{
+            position: relative;
+            float: right;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+        }
+        .collapseDown i{
+            line-height: 40px;
+        }
+
+        .file-containers{
+
+        }
+
+        .file-container{
+            padding-top: 15px;
+        }
+
+        .file-container a{
+            color: #a3a3a4;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+<main class="tupes" >
+
+    <div class="container file-containers" >
+
+        <div class=" file-container" name="filesTemplate" >
+            <ul class="list-inline">
+                <li><a href="javascript:void(0);" name="fileName" title="fileName">
+                    这一行是模板数据，忽略
+                </a>
+                </li>
+                <li><a href="javascript:void(0);" name="fileName" title="fileName">
+                    test1.xlsx
+                    </a>
+                </li>
+                <li><a href="javascript:void(0);" name="fileName">
+                    test2.xlsx
+                </a>
+                </li>
+                <li><a href="javascript:void(0);" name="fileName">
+                    test3.xlsx
+                </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="container tupe-container-group">
+        <div class="tupe-container row" name="tupeTemplate" >
+            <div class="tupe-header col-md-12 ">
+                <a href="javascript:void(0);"  ><strong class="sequence" name="tupeName" >1=1</strong></a>
+                <span class="tupe  hidden-xs " name="tupeContent"> 这个是模板数据，忽略</span>
+                <a href="javascript:void(0);" class="collapseDown"><i class="fa fa-angle-down"></i></a>
+
+            </div>
+            <div class="tupe-content col-md-12">
+                <div class="tupe-sourcer">
+                    Producer : <strong name="procuderName">Producer-1</strong>
+                    <p name="produceData" >tupe-sourcer-data</p>
+                </div>
+                <div class="tupe-consumer">
+                    Conusmer : <strong name="consumerName">Consumer-1</strong>
+                    <div class="tupe-consumer-consume">
+                        <p name="consumeData" >tupe-consume-data</p>
+                    </div>
+                    <div class="tupe-consumer-produce">
+                        <p name="produceData">tupe-produce-data</p>
+                    </div>
+                    <div class="tupe-consumer-mark">
+                        <p name="markData">tupe-mark-data</p>
+                    </div>
+                    <div class="tupe-consumer-exception">
+                        <p name="exceptionData">tupe-exception-data</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+
+
+<a href="#" id="back-to-top" style="display: block;"><i class="fa fa-angle-up"></i></a>
+
+
+
+</body>
+
+
+
+<script type="text/javascript">
+
+
+
+    $(function () {
+
+        var baseUrl=window.location.protocol+"//"+window.location.host+"/api/";
+        var $template=$('[name="tupeTemplate"]');
+        localStorage.setItem("tupeTemplate",$template[0].outerHTML);
+
+        var filesTemplate=$('[name="filesTemplate"]')[0].outerHTML;
+        localStorage.setItem("filesTemplate",filesTemplate);
+
+        $.get(baseUrl+'excel/getFiles',{},function (data) {
+
+            console.log(data);
+            var $filesTemplate=$(localStorage.getItem("filesTemplate")).clone();
+            var $li=$filesTemplate.find('li:first');
+            $filesTemplate.find('li').remove();
+            for(var i=0;i<data.data.length;i++){
+                var d=data.data[i];
+                var $fileLi=$li.clone();
+                $fileLi.find('[name="fileName"]').text(d.uri+"("+d.name+")");
+                $fileLi.find('a').attr('title',d.uri);
+                $fileLi.find('a').data('fileData',d);
+                $filesTemplate.find('ul').append($fileLi);
+                $fileLi.find('a').on('click',function () {
+                    var $others=$(this).parents('.file-containers').find('li>a');
+                    $others.css('background-color','transparent');
+                    $(this).css('background-color','#f6f6f6');
+                    getTupes($(this).data('fileData').uri);
+
+                });
+            }
+            $('.file-containers').append($filesTemplate);
+
+        },'json');
+
+
+
+        function getTupes(fileUrl){
+            $('.tupe-container-group').empty();
+
+
+
+            $.get(baseUrl+'excel/getTupes',{fileUrl :fileUrl},function (data) {
+
+                console.log(data);
+                var $template=$(localStorage.getItem("tupeTemplate"));
+                for(var i=0;i<data.data.length;i++){
+                    var d=data.data[i];
+                    var $tupeTemplate=$template.clone();
+                    $tupeTemplate.find('[name="tupeName"]').text(d.uri);
+                    $tupeTemplate.find('[name="tupeContent"]').text(d.content);
+                    $tupeTemplate.find('.tupe-content').remove();
+                    $tupeTemplate.find('.collapseDown,.tupe-header a').on('click',onDisplayDetail);
+                    if("ERROR"==d.status){
+                        $tupeTemplate.find('[name="tupeName"]').css('color','red');
+                    }
+
+                    $('.tupe-container-group').append($tupeTemplate);
+                }
+
+            },'json');
+        }
+
+
+
+        $('.collapseDown, .tupe-header a').on('click',onDisplayDetail);
+
+        function onDisplayDetail(){
+            var $header=$(this).parent();
+            var $parent=$(this).parents('.tupe-container');
+            var $content=$parent.children('.tupe-content');
+//            $header.css('border-bottom','0px');
+            if($content.length>0){
+                // got it
+                $content.toggle();
+
+            }else{
+                var tupeFileUri=$header.find('[name="tupeName"]').text();
+                $.get(baseUrl+'excel/getDetail',{tupeUrl : tupeFileUri },function (data) {
+
+                    console.log(data);
+                    var $template=$(localStorage.getItem("tupeTemplate"));
+                    var $dom=$template.find('.tupe-content').clone();
+                    $dom.find('.tupe-consumer').remove();
+                    //render tupe data
+                    var producerRecord=data.data.producerRecord;
+                    $dom.find('[name="procuderName"]').text(producerRecord.name);
+                    $dom.find('[name="produceData"]').text(producerRecord.produceData);
+
+                    var $consumerTemplate=$template.find('.tupe-consumer');
+                    var consumerRecords=data.data.consumerRecords;
+                    for(var i=0;i<consumerRecords.length;i++){
+                        var $consumer=$consumerTemplate.clone();
+                        var d=consumerRecords[i];
+                        $consumer.find('[name="consumerName"]').text(d.name);
+                        $consumer.find('[name="consumeData"]').text(d.consumeData);
+                        $consumer.find('[name="markData"]').text(d.markerData);
+                        $consumer.find('[name="exceptionData"]').text(d.exceptionData);
+                        $consumer.find('[name="produceData"]').text(d.produceData);
+                        $dom.append($consumer);
+
+                        if("ERROR"==d.status){
+//                            $dom.css("color","red");
+                        }
+
+                    }
+                    $parent.append($dom);
+
+                },'json');
+
+            }
+            event.stopPropagation();
+        }
+
+
+
+
+
+
+    });
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

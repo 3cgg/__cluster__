@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"  rel="stylesheet" media="screen" >
+    <script src="jquery/jquery-3.2.1.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <style type="text/css">
+        @media screen and (min-width: 768px){
+            .site-header{
+                padding-bottom: 50px;
+                padding-top: 20px;
+            }
+            .site-header h1 {
+                font-size: 56px;
+                text-shadow: -5px 5px 0 rgba(0,0,0,.1);
+            }
+            .site-header .jumbotron{
+                padding-top: 10px;
+            }
+            .site-header .navbar > .container .navbar-brand,
+            .site-header .navbar > .container-fluid .navbar-brand{
+                margin-left: 0px;
+            }
+        }
+
+        .site-header{
+            text-align: center;
+            background-color: #27ae60;
+            color: #fff;
+            margin-bottom: 0px;
+
+        }
+        .main-navbar{
+            margin-bottom: 0px;
+            background-color: transparent;
+        }
+        .main-navbar .navbar-brand{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 15px;
+            height: 30px;
+            padding: 5px 15px;
+        }
+        .main-navbar .icon-bar{
+            background-color: #fff;
+        }
+        .main-navbar .nav>li>a, .main-navbar a{
+            color: #eee;
+        }
+        .main-navbar .nav>li>a:focus, .main-navbar .nav>li>a:hover{
+            background-color: transparent;
+            color: #fff;
+        }
+        .jumbotron{
+            background-color: transparent;
+        }
+        .site-header .search-wraper{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            max-width: 680px;
+
+        }
+        .site-header .jumbotron .package-amount{
+            font-size: 14px;
+        }
+        .search {
+            padding: 13px 30px ;
+            border-radius: 0;
+            text-align: center;
+            font-size: 16px;
+            height: auto;
+            border-color: transparent;
+            box-shadow:none;
+
+        }
+        /*.fa{*/
+            /*color:#a3a3a4;*/
+            /*font-size: 16px;*/
+        /*}*/
+        .fa-search{
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }
+        .packages-list-container{
+            margin-top: 50px;
+        }
+        .list-group-item{
+            background-color: #fff;
+            border: 1px solid #ecf0f1;
+            font-size: 1.1em;
+            padding: 20px 20px 20px 25px;
+        }
+        .list-group-item:first-child{
+            border-radius: 0;
+        }
+        .packages h4{
+            margin: 0px;
+        }
+
+        @media screen and (max-width: 992px){
+            .packages .package-name{
+                margin-bottom: 10px;
+                font-weight: 700;
+                font-size: 16px;
+            }
+        }
+        .packages .package-extra-info{
+            font-size: 12px;
+            color: rgb(170,170,170);
+        }
+        .mostused-packages{
+            position: absolute;
+            margin-bottom: 0px;
+            width: 100%;
+        }
+        .well{
+            min-height: 20px;
+            background-color: rgb(245,245,245);
+            box-shadow: rgba(0,0,0,0.05) 0px 1px 1px inset;
+            border: solid 1px rgb(227,227,227);
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            border-radius: 0px;
+
+        }
+        .mostused-packages ul a{
+            color: #a3a3a4;
+        }
+        .packages .all-packages{
+            text-align: center;
+            color: #27ae60;
+            padding: 30px;
+        }
+
+        #footer{
+            background-color: #27ae60;
+            border-top: 1px solid #26aa5e;
+            color: #fff;
+            /*padding-top: 40px;*/
+            margin-top: 80px;
+        }
+        #footer .copy-right{
+            background-color: rgba(51,51,51,.08);
+            height: 50px;
+            line-height: 50px;
+            /*margin-top: 10px;*/
+            text-align: center;
+        }
+        #footer a{
+            color: #fff;
+
+        }
+        #back-to-top{
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            background: rgba(39,174,96,.6);
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            z-index: 1;
+            display: none;
+        }
+        #back-to-top i{
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+        }
+
+    </style>
+
+</head>
+<body>
+<!-- http://www.bootcdn.cn/ -->
+<header class="site-header" >
+    <nav class="navbar navbar-static-top main-navbar">
+        <div class="container">
+            <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" 
+                        data-toggle="collapse" data-target="#bs-navbar" 
+                        aria-controls="bs-navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="navbar-brand "
+                       style="border-right:2px solid #fff" >BootCDN</a>
+                    <a href="https://www.upyun.com/" 
+                        class="navbar-brand " target="_blank" >又拍云</a>
+            </div>
+            
+
+            <nav id="bs-navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/api/" target="_blank">API</a></li>
+                    <li><a href="http://blog.bootcdn.cn/" target="_blank">博客</a></li>
+                    <li><a href="/about/" >关于</a></li>
+                </ul>
+            
+            </nav>
+
+
+
+        </div>
+    </nav>
+
+    <div class="container jumbotron" style="">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>BootCDN<img src="http://www.bootcdn.cn/assets/img/bootcdn.png" alt="BootCDN logo" class="hidden"></h1>
+                <p>稳定、快速、免费的前端开源项目 CDN 加速服务<br>
+                    <span class="package-amount">共收录了 <strong>3121</strong> 个前端开源项目</span>
+                </p>
+                <div class="search-wraper" role="search">
+                    <div style="position:relative; ">
+                        <input class="form-control search clearable" 
+                        placeholder="搜索开源库，例如：jquery" 
+                        autocomplete="off" autofocus="" tabindex="0" 
+                        autocorrect="off" autocapitalize="off" spellcheck="false"> 
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mostused-packages well well-sm text-center hidden-xs hidden-sm">
+        <ul class="list-inline">
+            <li><a href="/bootstrap/" title="Bootstrap" target="_blank"
+                   onclick="_hmt.push(['_trackEvent', 'mostused', 'click', 'mostused-bootstrap'])"><img
+                    src="/assets/img/bootstrap.svg?1503550278529" alt="bootstrap"></a></li>
+            <li><a href="/react/" title="React" target="_blank"
+                   onclick="_hmt.push(['_trackEvent', 'mostused', 'click', 'mostused-react'])"><img
+                    src="/assets/img/react.svg?1503550278529" alt="React"></a></li>
+            <li><a href="/jquery/" title="jQuery" target="_blank"
+                   onclick="_hmt.push(['_trackEvent', 'mostused', 'click', 'mostused-jquery'])"><img
+                    src="/assets/img/jquery.svg?1503550278529" alt="jquery"></a></li>
+            <li><a href="/angular.js/" title="Angular.js" target="_blank"
+                   onclick="_hmt.push(['_trackEvent', 'mostused', 'click', 'mostused-angular.js'])"><img
+                    src="/assets/img/angular-icon.svg?1503550278529" alt="angular.js"></a></li>
+            <li><a href="/vue/" title="Vue.js" target="_blank"
+                   onclick="_hmt.push(['_trackEvent', 'mostused', 'click', 'mostused-vue.js'])"><img
+                    src="/assets/img/vue.svg?1503550278529" alt="Vue.js"></a></li>
+            <li><a href="/backbone.js/" title="Backbone.js" target="_blank"
+                   onclick="_hmt.push(['_trackEvent', 'mostused', 'click', 'mostused-backbone.js'])"><img
+                    src="/assets/img/backbone-icon.svg?1503550278529" alt="backbonejs"></a></li>
+            <li><a href="/lodash.js/" title="lodash" target="_blank"
+                   onclick="_hmt.push(['_trackEvent', 'mostused', 'click', 'mostused-lodash.js'])"><img
+                    src="/assets/img/lodash.svg?1503550278529" alt="lodashjs"></a></li>
+            <li><a href="/moment.js/" title="Moment.js" target="_blank"
+                   onclick="_hmt.push(['_trackEvent', 'mostused', 'click', 'mostused-moment.js'])"><img
+                    src="/assets/img/momentjs.svg?1503550278529" alt="momentjs"></a></li>
+        </ul>
+    </div>
+
+
+
+</header>
+
+
+
+<main class="packages-list-container" id="all-packages">
+    <div class="container">
+        <div class="list-group packages" id="common-packages">
+            <a href="/bootstrap/" class="package list-group-item" target="_blank" >
+                <div class="row">
+                    <div class="col-md-3">
+                        <h4 class="package-name">bootstrap</h4>
+                    </div>
+                    <div class="col-md-9 hidden-xs">
+                        <p class="package-description">
+                            The most popular front-end framework for developing responsive, mobile first projects on the
+                            web.
+                        </p>
+                    </div>
+                    <div class="package-extra-info col-md-9 col-md-offset-3 col-xs-12">
+                        <span><i class="fa fa-star"></i> 114388</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/react/" class="package list-group-item" target="_blank">
+                <div class="row">
+                    <div class="col-md-3"><h4 class="package-name">react</h4></div>
+                    <div class="col-md-9 hidden-xs">
+                        <p class="package-description">
+                            React is a JavaScript library for building user interfaces.
+                        </p>
+                    </div>
+                    <div class="package-extra-info col-md-9 col-md-offset-3 col-xs-12"><span><i class="fa fa-star"></i> 74041</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/vue/" class="package list-group-item" target="_blank"
+               onclick="_hmt.push(['_trackEvent', 'packages', 'click', 'vue'])">
+                <div class="row">
+                    <div class="col-md-3"><h4 class="package-name">vue</h4></div>
+                    <div class="col-md-9 hidden-xs"><p class="package-description">Simple, Fast &amp; Composable MVVM
+                        for building interactive interfaces</p></div>
+                    <div class="package-extra-info col-md-9 col-md-offset-3 col-xs-12"><span><i class="fa fa-star"></i> 64307</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/angular.js/" class="package list-group-item" target="_blank"
+               onclick="_hmt.push(['_trackEvent', 'packages', 'click', 'angular.js'])">
+                <div class="row">
+                    <div class="col-md-3"><h4 class="package-name">angular.js</h4></div>
+                    <div class="col-md-9 hidden-xs"><p class="package-description">AngularJS is an MVC framework for
+                        building web applications. The core features include HTML enhanced with custom component and
+                        data-binding capabilities, dependency injection and strong focus on simplicity, testability,
+                        maintainability and boiler-plate reduction.</p></div>
+                    <div class="package-extra-info col-md-9 col-md-offset-3 col-xs-12"><span><i class="fa fa-star"></i> 56830</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/all/" class="package list-group-item all-packages" target="_blank"
+               onclick="_hmt.push(['_trackEvent', 'packages', 'click', 'all'])">所有开源项目列表</a>
+
+
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<footer id="footer" class="footer hidden-print">
+
+    <div class="copy-right"><span>© 2013-2017</span> <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备11008151号</a>
+        <span>京公网安备11010802014853</span></div>
+</footer>
+
+<a href="#" id="back-to-top" style="display: block;"><i class="fa fa-angle-up"></i></a>
+
+</body>
+</html>

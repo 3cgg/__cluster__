@@ -1,0 +1,8 @@
+spring : 
+    application:
+        name: xstream
+    profiles : 
+        active : 
+           - dev
+           - dev-error
+           - assist
