@@ -1,12 +1,11 @@
 package me.libme.cls.rest.web;
 
+import me.libme.cls.rest.AppConfig;
 import me.libme.kernel._c.file.FileTransferCfg;
 import me.libme.webboot.ResponseModel;
-import me.libme.cls.rest.AppConfig;
-import me.libme.xstream.FileRepository;
-import me.libme.xstream.Repository;
-import me.libme.xstream.api.FileResponseVO;
-import me.libme.xstream.api.TupeRecordVO;
+import me.libme.xstream.excel.ExcelFileRepository;
+import me.libme.xstream.repo.FileResponseVO;
+import me.libme.xstream.repo.TupeRecordVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -29,13 +28,13 @@ public class ExcelController implements ApplicationListener<ContextRefreshedEven
     private AppConfig._Config config;
 
 
-    private Repository repository;
+    private ExcelFileRepository repository;
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         FileTransferCfg fileTransferCfg=new FileTransferCfg();
         fileTransferCfg.setDskPath(config.getStreamConfig().getRoot());
-        repository=new FileRepository(fileTransferCfg);
+        repository=new ExcelFileRepository(fileTransferCfg);
     }
 
     /**

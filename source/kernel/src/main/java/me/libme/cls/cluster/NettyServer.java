@@ -27,6 +27,11 @@ import java.util.concurrent.ThreadFactory;
  */
 public class NettyServer implements OpenResource ,CloseResource {
 
+
+    public static final String HOST="--cls.master.netty.host";
+
+    public static final String PORT="--cls.master.netty.port";
+
     private static final Logger LOGGER= LoggerFactory.getLogger(NettyServer.class);
 
     private ServerConfig serverConfig;
@@ -112,11 +117,6 @@ public class NettyServer implements OpenResource ,CloseResource {
 
 
     private class RecNettyConfigParser implements JParser {
-
-        private static final String HOST="--cls.master.netty.host";
-
-        private static final String PORT="--cls.master.netty.port";
-
 
         ServerConfig parse(NodeLeader nodeLeader){
 

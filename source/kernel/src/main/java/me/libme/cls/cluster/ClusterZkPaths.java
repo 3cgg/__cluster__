@@ -5,10 +5,9 @@ package me.libme.cls.cluster;
  */
 public class ClusterZkPaths {
 
+    public static String MASTER_PATH="/master";
 
-    public static final String BASE_PATH="/cluster";
-
-    public static String LEADER_INFO_PATH=BASE_PATH+"/leader-info";
+    public static String LEADER_INFO_PATH=MASTER_PATH+"/leader-info";
 
 
 }

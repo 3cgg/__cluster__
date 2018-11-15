@@ -3,8 +3,8 @@ package me.libme.cls.cluster;
 import me.libme.fn.netty.client.ClientChannelExecutor;
 import me.libme.fn.netty.client.DynamicClientChannelExecutor;
 import me.libme.fn.netty.client.SimpleClient;
+import me.libme.module.zookeeper.ZKExecutor;
 import me.libme.module.zookeeper.ZooKeeperConnector;
-import scalalg.me.libme.cls.BasicClsRuntime;
 
 import java.lang.reflect.Proxy;
 import java.util.concurrent.atomic.AtomicReference;
@@ -29,10 +29,9 @@ public class PathListenerClientFactory {
                 lock.lock();
 
                 if(clientChannelExecutorHolder.get()==null){
-                    BasicClsRuntime basicClsRuntime = BasicClsRuntime.builder().getOrCreate();
 
                     //zookeeper
-                    ZooKeeperConnector.ZookeeperExecutor executor= basicClsRuntime.zookeeperExecutor().get();
+                    ZooKeeperConnector.ZookeeperExecutor executor= ZKExecutor.defaultExecutor();
 
                     ChannelInfoOnZkProvider channelInfoOnZkProvider=new ChannelInfoOnZkProvider(ClusterZkPaths.LEADER_INFO_PATH,executor);
                     ClientChannelExecutor clientChannelExecutor=new DynamicClientChannelExecutor(channelInfoOnZkProvider);

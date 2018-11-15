@@ -8,7 +8,6 @@ import me.libme.module.zookeeper.ZooKeeperConnector;
 import me.libme.module.zookeeper.fn.ls.NodeMeta;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import scalalg.me.libme.cls.BasicClsRuntime;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -49,7 +48,8 @@ public class ChannelInfoOnZkProvider implements DynamicClientChannelExecutor.Sim
             openLock.set(true); // !important
 
             String ip=nodeMeta.getIp();
-            int serverPort= BasicClsRuntime.builder().getOrCreate().serverPort();
+            ClusterConfig clusterConfig=ClusterInfo.defaultConfig();
+            int serverPort= clusterConfig.getMaster().getPort();
 
             SimpleChannelExecutor simpleChannelExecutor=new SimpleChannelExecutor(ip,serverPort);
             channelExecutor.set(simpleChannelExecutor);
