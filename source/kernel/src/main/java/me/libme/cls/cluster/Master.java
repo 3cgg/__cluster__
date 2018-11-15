@@ -11,13 +11,6 @@ import java.util.List;
  */
 public class Master {
 
-
-    private List<OpenResource> openResources=new ArrayList<>();
-
-    private List<CloseResource> closeResources=new ArrayList<>();
-
-
-
     public static MasterBuilder builder(){
         return new MasterBuilder();
     }

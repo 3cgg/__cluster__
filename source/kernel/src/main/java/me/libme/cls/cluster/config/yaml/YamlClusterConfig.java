@@ -26,9 +26,13 @@ public class YamlClusterConfig implements ClusterConfigFinder {
         String name=yamlMapConfig.getString("cpp.cluster.name","Cpp SimpleCluster");
         clusterConfig.setName(name);
         ClusterConfig.Master master=new ClusterConfig.Master();
+        master.setName(yamlMapConfig.getString("cpp.cluster.master.name","Cpp Master"));
         master.setHost(yamlMapConfig.getString("cpp.cluster.master.netty.host","0.0.0.0"));
         master.setPort(yamlMapConfig.getInt("cpp.cluster.master.netty.port",10089));
         clusterConfig.setMaster(master);
+
+        ClusterConfig.Worker worker=new ClusterConfig.Worker();
+        worker.setName(yamlMapConfig.getString("cpp.cluster.worker.name","Cpp Worker"));
 
         clusterConfig.setProperties((Map<String, Object>) yamlMapConfig.getObject("cpp.cluster.properties",new HashMap<>()));
 

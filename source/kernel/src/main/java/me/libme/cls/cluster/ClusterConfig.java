@@ -13,6 +13,16 @@ public class ClusterConfig {
 
     private Master master;
 
+    private Worker worker;
+
+    public Worker getWorker() {
+        return worker;
+    }
+
+    public void setWorker(Worker worker) {
+        this.worker = worker;
+    }
+
     public Master getMaster() {
         return master;
     }
@@ -39,9 +49,19 @@ public class ClusterConfig {
 
     public static class Master{
 
+        private String name;
+
         private String host;
 
         private int port;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
 
         public String getHost() {
             return host;
@@ -59,4 +79,38 @@ public class ClusterConfig {
             this.port = port;
         }
     }
+
+
+    public static class Worker{
+
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
