@@ -1,18 +1,18 @@
 cpp:
   cluster:
-    properties: {
-        a: a
-    }
     name: SimpleCluster
     master:
       name: Test-Master
+      host: 0.0.0.0
+      host-name: J
       netty:
-        host: 0.0.0.0
         port: 10089
     worker:
       name: Test-Worker
 
-
+    properties: {
+        a: a
+    }
 
 
 

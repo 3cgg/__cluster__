@@ -47,13 +47,46 @@ public class ClusterConfig {
         this.properties = properties;
     }
 
+
+    public static class Netty{
+
+        private int port;
+
+        public int getPort() {
+            return port;
+        }
+
+        public void setPort(int port) {
+            this.port = port;
+        }
+    }
+
+
     public static class Master{
 
         private String name;
 
         private String host;
 
-        private int port;
+        private String hostName;
+
+        private Netty netty;
+
+        public Netty getNetty() {
+            return netty;
+        }
+
+        public void setNetty(Netty netty) {
+            this.netty = netty;
+        }
+
+        public String getHostName() {
+            return hostName;
+        }
+
+        public void setHostName(String hostName) {
+            this.hostName = hostName;
+        }
 
         public String getName() {
             return name;
@@ -71,13 +104,6 @@ public class ClusterConfig {
             this.host = host;
         }
 
-        public int getPort() {
-            return port;
-        }
-
-        public void setPort(int port) {
-            this.port = port;
-        }
     }
 
 

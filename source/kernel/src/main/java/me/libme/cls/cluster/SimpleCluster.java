@@ -54,10 +54,15 @@ public class SimpleCluster implements Cluster {
 
         clusterConfig.getProperties().forEach((key, value)->conf.put(key,value));
         conf.put(NettyServer.HOST,clusterConfig.getMaster().getHost());
-        conf.put(NettyServer.PORT,clusterConfig.getMaster().getPort());
+        conf.put(NettyServer.PORT,clusterConfig.getMaster().getNetty().getPort());
 
         // leader register
-        LeaderNodeRegister leaderNodeRegister=new LeaderNodeRegister("Leader Register",ClusterZkPaths.LEADER_INFO_PATH,executor);
+        Node node=new Node();
+        node.setIp(clusterConfig.getMaster().getHost());
+        node.setHostName(clusterConfig.getMaster().getHostName());
+        node.setName(clusterConfig.getMaster().getName());
+
+        LeaderNodeRegister leaderNodeRegister=new LeaderNodeRegister("Leader Register",ClusterZkPaths.LEADER_INFO_PATH,executor,node);
 
         //start netty server
         NettyServer nettyServer=new NettyServer();

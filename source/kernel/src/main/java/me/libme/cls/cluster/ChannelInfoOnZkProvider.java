@@ -49,7 +49,7 @@ public class ChannelInfoOnZkProvider implements DynamicClientChannelExecutor.Sim
 
             String ip=nodeMeta.getIp();
             ClusterConfig clusterConfig=ClusterInfo.defaultConfig();
-            int serverPort= clusterConfig.getMaster().getPort();
+            int serverPort= clusterConfig.getMaster().getNetty().getPort();
 
             SimpleChannelExecutor simpleChannelExecutor=new SimpleChannelExecutor(ip,serverPort);
             channelExecutor.set(simpleChannelExecutor);
