@@ -9,6 +9,8 @@ cpp:
         port: 10089
     worker:
       name: Test-Worker
+      host: 0.0.0.0
+      host-name: J
 
     properties: {
         a: a

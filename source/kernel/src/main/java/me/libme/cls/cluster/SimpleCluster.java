@@ -41,6 +41,12 @@ public class SimpleCluster implements Cluster {
         return this;
     }
 
+
+    @Override
+    public void prepare() throws Exception {
+        LOGGER.info("prepare cluster ...  ");
+    }
+
     @Override
     public void start() throws Exception{
         LOGGER.info("start cluster...");
@@ -96,7 +102,7 @@ public class SimpleCluster implements Cluster {
 
     @Override
     public void shutdown() throws Exception{
-
+        LOGGER.info("shutdown cluster...");
 
 
     }

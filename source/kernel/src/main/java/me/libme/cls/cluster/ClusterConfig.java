@@ -111,6 +111,26 @@ public class ClusterConfig {
 
         private String name;
 
+        private String host;
+
+        private String hostName;
+
+        public String getHost() {
+            return host;
+        }
+
+        public void setHost(String host) {
+            this.host = host;
+        }
+
+        public String getHostName() {
+            return hostName;
+        }
+
+        public void setHostName(String hostName) {
+            this.hostName = hostName;
+        }
+
         public String getName() {
             return name;
         }

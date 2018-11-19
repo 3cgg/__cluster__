@@ -1,5 +1,6 @@
 package me.libme.cls.cluster;
 
+import me.libme.cls.cluster._worker.NodeReporterInZk;
 import me.libme.cls.cluster._worker.NodeStatusReporterSchedule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +18,13 @@ public class SimpleWorker implements Worker {
 
     private NodeStatusReporterSchedule nodeStatusReporterSchedule=new NodeStatusReporterSchedule();
 
+    private NodeReporterInZk nodeReporterInZk=new NodeReporterInZk();
+
     private List<Action> actions=new ArrayList<>();
+    {
+        actions.add(nodeStatusReporterSchedule);
+        actions.add(nodeReporterInZk);
+    }
 
     private AtomicBoolean prepared=new AtomicBoolean(false);
 
@@ -26,9 +33,10 @@ public class SimpleWorker implements Worker {
 
     @Override
     public void prepare() throws Exception {
+        LOGGER.info("prepare worker...");
         if(prepared.compareAndSet(false,true)) {
-            nodeStatusReporterSchedule.prepare();
             for(Action action:actions){
+                LOGGER.info("do prepare ... on "+action.getClass().getName());
                 action.prepare();
             }
         }
@@ -38,16 +46,17 @@ public class SimpleWorker implements Worker {
     public void start() throws Exception {
         LOGGER.info("start worker...");
         prepare();
-        nodeStatusReporterSchedule.start();
         for(Action action:actions){
+            LOGGER.info("do start ... on "+action.getClass().getName());
             action.start();
         }
     }
 
     @Override
     public void shutdown() throws Exception {
-        nodeStatusReporterSchedule.shutdown();
+        LOGGER.info("shutdown worker...");
         for(Action action:actions){
+            LOGGER.info("do shutdown ... on "+action.getClass().getName());
             action.shutdown();
         }
     }
