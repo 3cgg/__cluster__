@@ -18,12 +18,12 @@ public class SimpleWorker implements Worker {
 
     private NodeStatusReporterSchedule nodeStatusReporterSchedule=new NodeStatusReporterSchedule();
 
-    private NodeReporterInZk nodeReporterInZk=new NodeReporterInZk();
+    private NodeReporterInZk nodeStatusReporterInZk=new NodeReporterInZk();
 
     private List<Action> actions=new ArrayList<>();
     {
         actions.add(nodeStatusReporterSchedule);
-        actions.add(nodeReporterInZk);
+        actions.add(nodeStatusReporterInZk);
     }
 
     private AtomicBoolean prepared=new AtomicBoolean(false);
