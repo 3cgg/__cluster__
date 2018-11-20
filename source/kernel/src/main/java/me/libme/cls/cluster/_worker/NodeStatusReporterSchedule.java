@@ -3,6 +3,8 @@ package me.libme.cls.cluster._worker;
 import me.libme.cls.cluster.*;
 import me.libme.cls.cluster._trait.reporter.NodeStatusReporter;
 import me.libme.kernel._c.util.NetUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.InetAddress;
 import java.util.concurrent.Executors;
@@ -13,6 +15,8 @@ import java.util.concurrent.TimeUnit;
  * Created by J on 2018/11/15.
  */
 public class NodeStatusReporterSchedule implements Action {
+
+    private static final Logger LOGGER= LoggerFactory.getLogger(NodeStatusReporterSchedule.class);
 
     private ScheduledExecutorService scheduledExecutorService= null;
 
@@ -32,12 +36,17 @@ public class NodeStatusReporterSchedule implements Action {
     public void start() throws Exception {
 
         scheduledExecutorService.scheduleAtFixedRate(()->{
-            InetAddress inetAddress= NetUtil.getLocalAddress();
-            NodeSnapshot nodeSnapshot=new NodeSnapshot();
-            nodeSnapshot.setNodeName(clusterConfig.getWorker().getName());
-            nodeSnapshot.setIp(inetAddress.getHostAddress());
-            nodeSnapshot.setHostName(inetAddress.getHostName());
-            nodeStatusReporter.report(nodeSnapshot,null);
+            try {
+                InetAddress inetAddress= NetUtil.getLocalAddress();
+                NodeSnapshot nodeSnapshot=new NodeSnapshot();
+                nodeSnapshot.setNodeName(clusterConfig.getWorker().getName());
+                nodeSnapshot.setIp(inetAddress.getHostAddress());
+                nodeSnapshot.setHostName(inetAddress.getHostName());
+                nodeStatusReporter.report(nodeSnapshot,null);
+            }catch (Exception e){
+                LOGGER.error(e.getMessage(),e);
+            }
+
         },10,30, TimeUnit.SECONDS);
     }
 
