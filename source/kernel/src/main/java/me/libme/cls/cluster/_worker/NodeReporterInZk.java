@@ -28,6 +28,9 @@ public class NodeReporterInZk implements Action {
 
     @Override
     public void start() throws Exception {
+        if(executor.exists(indicatePath)){
+            executor.deletePath(indicatePath);
+        }
         executor.createPath(indicatePath,
                 JJSON.get().format(clusterConfig.getWorker())
                 ,CreateMode.EPHEMERAL);
